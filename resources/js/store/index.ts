@@ -3,10 +3,10 @@ import notificationReducer from "../reducer/notificationSlice";
 import modalReducer from "../reducer/modalSlice";
 
 const store = configureStore({
-    reducer: {
-        notification: notificationReducer,
-        modal: modalReducer,
-    },
+  reducer: {
+    notification: notificationReducer,
+    modal: modalReducer,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

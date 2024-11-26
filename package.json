@@ -1,28 +1,28 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-react": "^4.3.3",
-        "autoprefixer": "^10.4.20",
-        "axios": "^1.7.4",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.0",
-        "postcss": "^8.4.49",
-        "prettier": "3.4.0",
-        "tailwindcss": "^3.4.15",
-        "vite": "^5.0"
-    },
-    "dependencies": {
-        "@inertiajs/react": "^1.2.0",
-        "@reduxjs/toolkit": "^2.3.0",
-        "prettier-plugin-tailwindcss": "^0.6.9",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-redux": "^9.1.2",
-        "vite-plugin-pwa": "^0.21.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.4",
+    "concurrently": "^9.0.1",
+    "laravel-vite-plugin": "^1.0",
+    "postcss": "^8.4.49",
+    "prettier": "3.4.0",
+    "tailwindcss": "^3.4.15",
+    "vite": "^5.0"
+  },
+  "dependencies": {
+    "@inertiajs/react": "^1.2.0",
+    "@reduxjs/toolkit": "^2.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "vite-plugin-pwa": "^0.21.0"
+  }
 }
