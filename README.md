@@ -34,6 +34,7 @@ src/Domain/
 │   ├── DTO/
 │   ├── Jobs/
 │   ├── Models/
+│   ├── Policies/
 │   ├── Query/
 │   ├── Requests/
 │   ├── ViewModels/
@@ -42,6 +43,7 @@ src/Domain/
 │   ├── DTO/
 │   ├── Jobs/
 │   ├── Models/
+│   ├── Policies/
 │   ├── Query/
 │   ├── Requests/
 │   ├── ViewModels/
@@ -50,6 +52,7 @@ src/Domain/
 │   ├── DTO/
 │   ├── Jobs/
 │   ├── Models/
+│   ├── Policies/
 │   ├── Query/
 │   ├── Requests/
 │   ├── ViewModels/
