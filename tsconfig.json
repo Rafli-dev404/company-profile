@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
+    "target": "es2017",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./resources/js",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "lib": ["ES2019", "dom"]
+  },
+  "include": [
+    "resources/assets",
+    "resources/js"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "custom.d.ts",
+  ]
+}

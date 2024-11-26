@@ -9,7 +9,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        return inertia('Welcome', [
+        return inertia('Welcome/Index', [
             'model' => new WelcomeViewModel(),
         ]);
     }
