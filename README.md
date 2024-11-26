@@ -27,7 +27,7 @@ app/Http/Controllers/
 ### Modules
 
 ```
-app/Domain/
+src/Domain/
 ├── Utils/
 ├── Shared/
 │   ├── Actions/
