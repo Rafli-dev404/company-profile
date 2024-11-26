@@ -6,7 +6,7 @@ use Domain\Shared\ViewModels\ViewModel;
 
 class WelcomeViewModel extends ViewModel
 {
-    public function welcome(): array
+    public function data(): array
     {
         return [
             'message' => 'Welcome to the MIT app!',

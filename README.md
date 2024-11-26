@@ -1,6 +1,8 @@
-## Project Structure
+## Project Structure Backend
+
 ### Routes
-````
+
+```
 routes/
 ├── modules/
 │   ├── welcome.php
@@ -8,9 +10,11 @@ routes/
 │   ├── modul2.php
 │   ├── etc...php
 └── web.php
-````
+```
+
 ### Controllers
-````
+
+```
 app/Http/Controllers/
 ├── Welcome/
 │   ├── WelcomeController.php
@@ -18,9 +22,11 @@ app/Http/Controllers/
 │   ├── Modeul1Controller.php
 ├── Module2/
 │   ├── Modeul2Controller.php
-````
+```
+
 ### Modules
-````
+
+```
 app/Domain/
 ├── Utils/
 ├── Shared/
@@ -47,4 +53,4 @@ app/Domain/
 │   ├── Query/
 │   ├── Requests/
 │   ├── ViewModels/
-````
+```
