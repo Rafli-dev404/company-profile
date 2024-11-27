@@ -3,13 +3,14 @@
 namespace Domain\Welcome\ViewModels;
 
 use Domain\Shared\ViewModels\ViewModel;
+use Domain\Welcome\DTO\WelcomeData;
 
 class WelcomeViewModel extends ViewModel
 {
-    public function data(): array
+    public function data(): WelcomeData
     {
-        return [
-            'message' => 'Welcome to the MIT app!',
-        ];
+        return WelcomeData::from([
+            'message' => 'Welcome to the Laravel Data package!',
+        ]);
     }
 }
