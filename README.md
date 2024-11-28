@@ -57,3 +57,29 @@ src/Domain/
 │   ├── Requests/
 │   ├── ViewModels/
 ```
+## Project Frontend
+```
+resources/js/
+├── Layouts/
+├── Components/
+├── reducer/
+├── store/
+├── Pages/Welcome/
+│   ├── Components/
+│   ├── Contexts/
+│   ├── Interfaces/
+│   ├── Index.tsx
+│   ├── Show.tsx
+├── Pages/Module1/
+│   ├── Components/
+│   ├── Contexts/
+│   ├── Interfaces/
+│   ├── Index.tsx
+│   ├── Show.tsx
+├── Pages/Module2/
+│   ├── Components/
+│   ├── Contexts/
+│   ├── Interfaces/
+│   ├── Index.tsx
+│   ├── Show.tsx
+```
