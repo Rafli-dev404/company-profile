@@ -83,7 +83,7 @@ resources/js/
 │   ├── Index.tsx
 │   ├── Show.tsx
 ```
-Berikut adalah penjelasan mengenai struktur proyek yang telah Anda bagikan:
+Berikut adalah penjelasan mengenai struktur proyek yang digunakan pada backend dan frontend.
 
 ---
 
