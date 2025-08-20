@@ -6,11 +6,28 @@ use Domain\Shared\ViewModels\ViewModel;
 
 class HomeViewModels extends ViewModel
 {
-    public function __construct(){}
-    public function title (): string
+    public function __construct() {}
+
+    public function title(): string
     {
-        return 'Home';
+        return 'PT Maksi Integrasi Teknologi';
     }
 
-    // Add methods to retrieve data for the Home view if necessary
+    public function subtitle(): string
+    {
+        return 'Selamat Datang di Maksi Integrasi Sistem';
+    }
+
+    public function description(): string
+    {
+        return 'Providing comprehensive IT development, deployment, and system integration services to help businesses undergo digital transformation.';
+    }
+
+    public function buttons(): array
+    {
+        return [
+            ['label' => 'Tentang Kami', 'href' => '/about'],
+            ['label' => 'Get Started', 'href' => '/contact'],
+        ];
+    }
 }
