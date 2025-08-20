@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Home\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home\HomeController;
 
-Route::middleware(['web']) ->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('Home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
