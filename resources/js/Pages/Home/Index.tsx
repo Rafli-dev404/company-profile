@@ -1,6 +1,5 @@
 import { Link } from '@inertiajs/react';
 import React from 'react';
-import Navbar from "@/Components/Navbar";
 import LayoutMain from '../Layout/LayoutMain';
 
 export default function Index(props: {
@@ -12,6 +11,7 @@ export default function Index(props: {
   }
 }) {
   const { title, subtitle, description, buttons } = props.model;
+
   return (
     <LayoutMain title={'Home'}>
       {/* Hero Section */}
@@ -23,10 +23,11 @@ export default function Index(props: {
           </h2>
           <p className="text-base text-gray-700 mb-4">{subtitle}</p>
           <p className="text-base text-gray-600 mb-6">{description}</p>
+
           {/* Buttons */}
           <div className="flex gap-4">
             {buttons.map((btn, i) => (
-              <a
+              <Link
                 key={i}
                 href={btn.href}
                 className={`px-6 py-2 rounded-md font-semibold transition ${i === 0
@@ -35,10 +36,11 @@ export default function Index(props: {
                   }`}
               >
                 {btn.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
+
         {/* Image */}
         <div className="absolute right-0 top-20 z-0">
           <img
@@ -49,6 +51,7 @@ export default function Index(props: {
           />
         </div>
       </section>
+
       {/* Icon Section */}
       <section className="flex justify-start gap-8 px-16 py-10">
         <img src="/images/icon1.png" alt="icon1" className="h-14 w-14" />
