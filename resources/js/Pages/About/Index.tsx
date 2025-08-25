@@ -1,12 +1,12 @@
 // resources/js/Pages/About/Index.tsx
 import React from "react";
-import Navbar from "@/Components/Navbar";
+import Navbar from "@/Pages/Layout/Navbar";
 import LayoutMain from "../Layout/LayoutMain";
 
 export default function Index() {
     return (
         <LayoutMain title="About Us">
-            <section className="px-16 py-20">
+            <section className="px-16 py-20 min-h-[88vh]">
                 <h2 className="text-4xl font-bold text-white mb-4">About Us</h2>
                 <p className="text-lg text-white max-w-2xl">
                     Kami adalah perusahaan teknologi yang berfokus pada solusi digital inovatif.
