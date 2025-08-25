@@ -1,6 +1,6 @@
-import React from "react";
-
+import React from "react"
 import { useState, useEffect } from "react"
+import Navbar from "@/Components/Navbar"
 
 export default function AboutSection() {
   const [showButton, setShowButton] = useState(true)
@@ -41,8 +41,8 @@ export default function AboutSection() {
   console.log("[v0] Component rendered, showButton:", showButton)
 
   return (
-    <div className="px-6 py-16 flex flex-col items-start min-h-screen relative">
-      <div className="max-w-4xl ml-16">
+    <div className="px-6 py-32 flex flex-col items-start min-h-screen relative">
+      <div className="max-w-4xl ml-16 mt-16">
         <h1 className="text-6xl font-bold text-black mb-6">About Us</h1>
         <h2 className="text-2xl text-gray-800 mb-12">PT Maksi Integrasi Teknologi</h2>
         <div className="max-w-4xl">
@@ -57,9 +57,9 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <div className="h-32"></div>
+      <div className="h-48"></div>
 
-      <div id="vision-mission-section" className="relative w-full max-w-6xl mt-20 mx-auto">
+      <div id="vision-mission-section" className="relative w-full max-w-6xl mt-32 mx-auto">
         <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
           <svg width="60" height="200" viewBox="0 0 60 200" className="text-black-300">
             <circle cx="10" cy="20" r="4" fill="currentColor" />
