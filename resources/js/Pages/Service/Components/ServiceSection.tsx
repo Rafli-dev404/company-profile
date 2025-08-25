@@ -1,6 +1,5 @@
 import React from 'react'
-import ServiceCard from './ServiceCard'
-
+import ServiceCard from "./ServiceCard"
 
 const services = [
   {
@@ -36,10 +35,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF] pt-7">
+    <section className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF] pt-32">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-left mb-12">
+        <div className="text-left mb-8 mt-5">
           <h2 className="text-4xl font-bold text-black mb-4">Our Service</h2>
           <p className="text-black text-lg">Temukan solusi anda di Maksi Integrasi Teknologi.</p>
         </div>
@@ -54,4 +53,3 @@ export default function ServicesSection() {
     </section>
   )
 }
-
