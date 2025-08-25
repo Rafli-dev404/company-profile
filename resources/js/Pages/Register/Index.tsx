@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react";
 export default function Register() {
     return (
         <LayoutMain title="Register">
-            <section className="flex justify-center px-16 py-20">
+            <section className="flex justify-center px-16 py-20 min-h-[100vh]">
                 <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-xl">
                     <h3 className="text-xl font-bold mb-4 text-center">Register</h3>
 

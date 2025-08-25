@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/react";
 export default function Index() {
     return (
         <LayoutMain title="Login">
-            <section className="flex justify-center px-16 py-20">
+            <section className="flex justify-center px-16 py-20 min-h-[100vh]">
                 <div className="relative w-full max-w-md bg-white p-8 shadow-lg rounded-xl">
 
                     {/* Tombol X */}
