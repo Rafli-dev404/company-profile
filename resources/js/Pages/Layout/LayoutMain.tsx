@@ -1,4 +1,4 @@
-import Navbar from '@/Components/Navbar'
+import Navbar from '@/Pages/Layout/Navbar'
 import { Head } from '@inertiajs/react'
 import React from 'react'
 
@@ -11,7 +11,7 @@ export default function LayoutMain(props: {
         <>
             <Navbar />
             <Head title={title} />
-            <div className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF]">
+            <div className="min-h-full bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF]">
                 {children}
             </div>
 
