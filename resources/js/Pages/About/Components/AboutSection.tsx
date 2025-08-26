@@ -26,21 +26,16 @@ export default function AboutSection() {
   }, [])
 
   const handleVisionMissionClick = () => {
-    console.log("[v0] Vision & Mission button clicked, showButton state:", showButton)
     const visionSection = document.getElementById("vision-mission-section")
     if (visionSection) {
-      console.log("[v0] Scrolling to vision section")
       visionSection.scrollIntoView({ behavior: "smooth" })
       setTimeout(() => {
-        console.log("[v0] Hiding button after scroll")
         setShowButton(false)
       }, 1000)
     } else {
-      console.log("[v0] Vision section not found")
     }
   }
 
-  console.log("[v0] Component rendered, showButton:", showButton)
 
   return (
 
