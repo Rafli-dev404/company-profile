@@ -1,6 +1,6 @@
 import React from "react";
 import LayoutMain from "../Layout/LayoutMain";
-import LoginForm from "@/Components/LoginForm";
+import LoginForm from "@/Pages/Login/Components/LoginForm";
 import { Link } from "@inertiajs/react";
 
 export default function Index() {
