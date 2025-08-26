@@ -5,7 +5,3 @@ use Illuminate\Support\Facades\Route;
 foreach (glob(base_path('routes/modules/*.php')) as $routeFile) {
     require $routeFile;
 }
-
-Route::get('/', function () {
-    return redirect()->route('welcome');
-});
