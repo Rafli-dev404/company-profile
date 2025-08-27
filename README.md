@@ -64,12 +64,8 @@ resources/js/
 ├── Components/
 ├── reducer/
 ├── store/
-├── Pages/Welcome/
-│   ├── Components/
-│   ├── Contexts/
-│   ├── Interfaces/
+├── Pages/Home/
 │   ├── Index.tsx
-│   ├── Show.tsx
 ├── Pages/Module1/
 │   ├── Components/
 │   ├── Contexts/
