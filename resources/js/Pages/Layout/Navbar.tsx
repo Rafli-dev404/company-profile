@@ -155,6 +155,10 @@ export default function Navbar() {
         <Link href="/contact" className="hover:text-white/80">
           Contact Us
         </Link>
+
+        <Link href="/blog" className="hover:text-white/80">
+          Blog
+        </Link>
       </nav>
 
       {/* Login */}
