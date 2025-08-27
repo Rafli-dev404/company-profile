@@ -25,6 +25,7 @@ export default function Navbar() {
 
             {/* Menu */}
             <nav className="flex gap-6 text-gray-700 font-medium ml-auto items-center">
+                {/* TODO : Link masih dummy blm diconnec ke backend */}
                 <Link href="/" className="hover:text-blue-600">Home</Link>
 
                 {/* About */}
