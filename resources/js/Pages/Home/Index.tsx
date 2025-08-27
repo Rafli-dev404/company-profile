@@ -2,8 +2,6 @@ import { Link } from '@inertiajs/react';
 import React from 'react';
 import LayoutMain from '../Layout/LayoutMain';
 import Footer from '../Layout/Footer';
-import SocialSection from "../Home/SocialSection";
-import HeroSection from "../Home/HeroSection";
 import { motion } from "framer-motion";
 
 export default function Index(props: {
@@ -208,7 +206,7 @@ export default function Index(props: {
         transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
-        <HeroSection />
+
       </motion.div>
 
       <motion.div
@@ -217,11 +215,7 @@ export default function Index(props: {
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <SocialSection />
       </motion.div>
-
-      {/* Footer tanpa animasi */}
-      <Footer />
     </LayoutMain>
   );
 }

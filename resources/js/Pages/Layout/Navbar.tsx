@@ -89,14 +89,16 @@ export default function Navbar() {
                 </div>
 
                 {/* Product */}
-                <div className="relative">
-                    <button
-                        onClick={() => toggleDropdown("product")}
-                        className="flex items-center hover:text-blue-600"
-                    >
+                <div
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown("product")}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                >
+                    <Link href="/product" className="flex items-center hover:text-blue-600 relative z-20">
                         Product
                         <svg
-                            className={`ml-1 h-5 w-5 transition-transform ${openDropdown === "product" ? "rotate-180" : "rotate-0"}`}
+                            className={`ml-1 h-5 w-5 transition-transform ${openDropdown === "product" ? "rotate-180" : "rotate-0"
+                                }`}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
@@ -107,14 +109,15 @@ export default function Navbar() {
                                 clipRule="evenodd"
                             />
                         </svg>
-                    </button>
+                    </Link>
 
                     {openDropdown === "product" && (
-                        <div className="absolute mt-2 w-64 bg-white rounded-md shadow-lg ring-1 ring-black/5 z-10">
-                            <Link href="/product" className="block px-4 py-2 hover:bg-gray-100">Maximple</Link>
-                            <Link href="/product/maxcode" className="block px-4 py-2 hover:bg-gray-100">Maxcode</Link>
-                            <Link href="/product/konsis" className="block px-4 py-2 hover:bg-gray-100">Ajuin</Link>
-                            <Link href="/product/maxipos" className="block px-4 py-2 hover:bg-gray-100">Maxipos</Link>
+                        <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black/5 z-50">
+                            <div className="absolute -top-2 left-0 right-0 h-3 bg-transparent"></div>
+                            <Link href="/product/1" className="block px-4 py-2 hover:bg-gray-100">Maximple</Link>
+                            <Link href="/product/2" className="block px-4 py-2 hover:bg-gray-100">Maxcode</Link>
+                            <Link href="/product/3" className="block px-4 py-2 hover:bg-gray-100">Ajuin</Link>
+                            <Link href="/product/4" className="block px-4 py-2 hover:bg-gray-100">Maxipos</Link>
                         </div>
                     )}
                 </div>
