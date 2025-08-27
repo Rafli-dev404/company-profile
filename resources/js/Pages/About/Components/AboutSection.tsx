@@ -1,4 +1,6 @@
+import Footer from "@/Pages/Layout/Footer";
 import React from "react";
+
 
 import { useState, useEffect } from "react"
 
@@ -24,24 +26,20 @@ export default function AboutSection() {
   }, [])
 
   const handleVisionMissionClick = () => {
-    console.log("[v0] Vision & Mission button clicked, showButton state:", showButton)
     const visionSection = document.getElementById("vision-mission-section")
     if (visionSection) {
-      console.log("[v0] Scrolling to vision section")
       visionSection.scrollIntoView({ behavior: "smooth" })
       setTimeout(() => {
-        console.log("[v0] Hiding button after scroll")
         setShowButton(false)
       }, 1000)
     } else {
-      console.log("[v0] Vision section not found")
     }
   }
 
-  console.log("[v0] Component rendered, showButton:", showButton)
 
   return (
-    <div className="px-6 py-16 flex flex-col items-start min-h-screen relative">
+
+    <div className="px-6 py-30 flex flex-col items-start min-h-screen relative">
       <div className="max-w-4xl ml-16">
         <h1 className="text-6xl font-bold text-black mb-6">About Us</h1>
         <h2 className="text-2xl text-gray-800 mb-12">PT Maksi Integrasi Teknologi</h2>
@@ -142,5 +140,7 @@ export default function AboutSection() {
         </div>
       )}
     </div>
+
+
   )
 }

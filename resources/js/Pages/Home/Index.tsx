@@ -17,7 +17,7 @@ export default function Index(props: {
   return (
     <LayoutMain title={'Home'}>
       {/* Hero Section */}
-      <section className="relative flex flex-col md:flex-row items-center px-16 py-20 min-h-[88vh]">
+      <section className="relative flex flex-col md:flex-row items-center px-16 py-20 min-h-[100vh]">
         {/* Text */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
@@ -54,7 +54,7 @@ export default function Index(props: {
           viewport={{ once: true }}
           src="/images/laptop-code.png"
           alt="Laptop with code"
-          className="absolute right-0 top-20 z-0 rounded-tl-[100px] rounded-bl-[100px] shadow-lg w-[600px] h-[400px] object-cover"
+          className="absolute right-0 top-20 z-0 rounded-tl-[100px] rounded-bl-[100px] shadow-lg w-[600px] h-[400px] mt-30 object-cover"
         />
       </section>
 

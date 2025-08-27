@@ -39,13 +39,13 @@ export default function ServicesSection() {
     <section className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF] pt-7">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-left mb-12">
+        <div className="text-left mb-12 py-20">
           <h2 className="text-4xl font-bold text-black mb-4">Our Service</h2>
           <p className="text-black text-lg">Temukan solusi anda di Maksi Integrasi Teknologi.</p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 -mt-10">
           {services.map((service, index) => (
             <ServiceCard key={index} title={service.title} description={service.description} />
           ))}
