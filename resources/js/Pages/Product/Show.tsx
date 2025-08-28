@@ -2,6 +2,7 @@ import React from "react";
 import LayoutMain from "../Layout/LayoutMain";
 import { Link, usePage } from "@inertiajs/react";
 import { CheckCircle2 } from "lucide-react";
+import ProductCard from "./Components/ProductCard";
 
 export default function Show() {
     const { url } = usePage();
@@ -110,42 +111,15 @@ export default function Show() {
                     </div>
                 </div>
             </div>
-
-            <section className="bg-white py-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto px-6">
-                    <div className="relative flex justify-center">
-                        <div className="absolute -top-6 -left-6 w100 h-100 bg-yellow-400 rounded-3xl -z-10"></div>
-                        <img
-                            src={product.detailImage}
-                            alt={product.name}
-                            className="rounded-xl shadow-lg relative"
-                        />
-                    </div>
-
-                    <div>
-                        <h2 className="text-3xl font-bold mb-4">{product.title}</h2>
-                        <p className="text-lg text-gray-800 mb-6 leading-relaxed">
-                            {product.description}
-                        </p>
-
-                        <ul className="space-y-3 mb-8">
-                            {product.features.map((item: string, index: number) => (
-                                <li key={index} className="flex items-start gap-3">
-                                    <CheckCircle2 className="w-5 h-5 text-green-500 mt-1" />
-                                    <span className="text-gray-800">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <a
-                            href="#"
-                            className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
-                        >
-                            Demo Produk!
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <ProductCard
+                title={product.title}
+                description={product.description}
+                features={product.features}
+                image={product.detailImage}
+                link="/contact"
+                reverse={false}
+                bg="white"
+            />
         </LayoutMain>
     );
 }
