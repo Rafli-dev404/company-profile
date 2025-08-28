@@ -5,15 +5,15 @@ import BlogInterface from '../Interface/BlogInterface'
 
 
 export default function Articel({
-          title,
-          excerpt,
-          author,
-          date,
-          readTime,
-          category,
-          image,
-          borderColor }:
-          BlogInterface & { borderColor: string }) {
+  title,
+  excerpt,
+  author,
+  date,
+  readTime,
+  category,
+  image,
+  borderColor }:
+  BlogInterface ) {
 
   return (
     <div
