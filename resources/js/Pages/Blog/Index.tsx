@@ -49,6 +49,7 @@ export default function Page() {
                 readTime: "5 min read",
                 category: "Investasi",
                 image: "/investment-tips.png",
+                borderColor: "border-blue-500",
               },
               {
                 id: 2,
@@ -60,6 +61,7 @@ export default function Page() {
                 readTime: "7 min read",
                 category: "Bisnis",
                 image: "/digital-business-strategy.png",
+                borderColor: "border-red-500",
               },
               {
                 id: 3,
@@ -71,6 +73,7 @@ export default function Page() {
                 readTime: "4 min read",
                 category: "Keuangan",
                 image: "/personal-finance-mobile-app.png",
+                borderColor: "border-green-500",
               },
             ].map((article, i) => (
               <Articel
@@ -82,6 +85,7 @@ export default function Page() {
                 readTime={article.readTime}
                 category={article.category}
                 image={article.image}
+                borderColor={article.borderColor}
               />
             ))}
           </div>
