@@ -10,4 +10,12 @@ class ProductController extends Controller
     {
         return inertia('Product/Index');
     }
+    public function show($id)
+    {
+        //Logic untuk mencari product 
+
+        return inertia('Product/Show', [
+            'model' => $id
+        ]);
+    }
 }
