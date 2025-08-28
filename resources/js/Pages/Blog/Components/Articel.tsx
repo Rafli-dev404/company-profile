@@ -1,19 +1,20 @@
 import React from 'react'
 import { Search, Calendar, Clock, User, Layout } from 'lucide-react'
 import LayoutMain from '../../Layout/LayoutMain'
+import BlogInterface from '../Interface/BlogInterface'
 
-interface ArticleProps {
-  title: string
-  excerpt: string
-  author: string
-  date: string
-  readTime: string
-  category: string
-  image: string
-  borderColor: string
-}
 
-export default function Articel({ title, excerpt, author, date, readTime, category, image, borderColor }: ArticleProps) {
+export default function Articel({
+          title,
+          excerpt,
+          author,
+          date,
+          readTime,
+          category,
+          image,
+          borderColor }:
+          BlogInterface & { borderColor: string }) {
+
   return (
     <div
       className={`border-l-4 ${borderColor} pl-6 bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-full`}
