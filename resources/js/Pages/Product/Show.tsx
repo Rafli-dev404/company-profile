@@ -6,6 +6,7 @@ import { CheckCircle2 } from "lucide-react";
 export default function Show() {
     const { url } = usePage();
     const model = url.split("/").pop();
+    // Data Dummy Belum Menggunakan Dari dari backend
 
     const products: Record<string, any> = {
         "1": {
