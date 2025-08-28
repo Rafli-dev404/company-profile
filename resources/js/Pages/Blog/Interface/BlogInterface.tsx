@@ -6,4 +6,5 @@ export default interface BlogInterface {
   readTime: string
   category: string
   image: string
+  borderColor: string
 }
