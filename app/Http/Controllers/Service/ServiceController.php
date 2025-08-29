@@ -10,4 +10,11 @@ class ServiceController extends Controller
     {
         return inertia('Service/Index');
     }
+
+    public function show($id)
+    {
+        return inertia('Service/Show', [
+            'model' => $id
+        ]);
+    }
 }
