@@ -1,57 +1,92 @@
-import React from 'react'
-import ServiceCard from './ServiceCard'
+import React from "react";
+import { Link } from "@inertiajs/react";
+import ServiceCard from "./ServiceCard";
+import ServiceCardInterface from "../Interface/ServiceCardInterface";
+import ServiceFeaturesSection from "./ServiceFeaturesSection";
 
+export default function ServiceSection() {
+  const services: ServiceCardInterface[] = [
+    {
+      title: "Pengembangan Aplikasi",
+      description:
+        "Kami menciptakan aplikasi yang disesuaikan dengan kebutuhan spesifik bisnis Anda. Mulai dari aplikasi mobile, web, hingga solusi enterprise.",
+      features: [
+        "Aplikasi Mobile",
+        "Aplikasi Web",
+        "Solusi Enterprise",
+        "Custom sesuai kebutuhan",
+      ],
+      image: "/images/service-app.png",
+      link: "/service/pengembangan-aplikasi",
+      bg: "white",
+    },
+    {
+      title: "Integrasi Sistem",
+      description:
+        "Kami menghubungkan berbagai sistem dan platform yang dimiliki perusahaan Anda agar saling terhubung dengan lancar.",
+      features: [
+        "Integrasi API",
+        "Konektivitas antar sistem",
+        "Sinkronisasi data",
+        "Efisiensi proses bisnis",
+      ],
+      image: "/images/service-integration.png",
+      link: "/service/integrasi-sistem",
+      bg: "white",
+    },
+    {
+      title: "Deployment Solusi",
+      description:
+        "Kami memastikan implementasi sistem berjalan cepat, aman, dan sesuai standar industri.",
+      features: [
+        "Setup server & cloud",
+        "Deployment cepat",
+        "Keamanan standar industri",
+        "Dukungan teknis penuh",
+      ],
+      image: "/images/deployment.png",
+      link: "/service/deployment-solusi",
+      bg: "white",
+    },
+  ];
 
-const services = [
-  {
-    title: "Pengembangan aplikasi",
-    description:
-      "Kami menciptakan aplikasi yang disesuaikan dengan kebutuhan spesifik bisnis Anda. Mulai dari aplikasi mobile, web, hingga solusi enterprise, tim kami siap mengubah ide Anda menjadi kenyataan yang berdampak.",
-  },
-  {
-    title: "Integrasi Sistem",
-    description:
-      "Kami menghubungkan berbagai sistem dan platform yang berbeda untuk menciptakan ekosistem digital yang efisien dan terhubung. Dengan pendekatan integrasi yang canggih, kami memastikan bahwa seluruh data dan sistem Anda dapat bekerja selaras dan optimal.",
-  },
-  {
-    title: "Deployment Solusi",
-    description:
-      "Kami tidak hanya membangun solusi, tetapi juga memastikan proses implementasi berjalan cepat, aman, dan sesuai dengan standar industri. Kami percaya bahwa keberhasilan sebuah sistem tidak hanya ditentukan oleh kualitas pengembangannya, tetapi juga oleh implementasi dalam tahap deployment.",
-  },
-  {
-    title: "Identity and Access Management (IAM)",
-    description: "Layanan untuk mengelola autentikasi dan otorisasi pengguna di berbagai sistem yang terintegrasi.",
-  },
-  {
-    title: "Database Integration Services",
-    description:
-      "Layanan yang memungkinkan integrasi dan pengelolaan data antar-basis data atau antara basis data dan aplikasi.",
-  },
-  {
-    title: "API Services",
-    description:
-      "Layanan yang memungkinkan aplikasi atau sistem berbeda untuk berkomunikasi dan berbagi data secara real-time. API berfungsi sebagai perantara untuk mengintegrasikan fungsi antar-platform.",
-  },
-]
-
-export default function ServicesSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF] pt-7">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-left mb-12 py-20">
-          <h2 className="text-4xl font-bold text-black mb-4">Our Service</h2>
-          <p className="text-black text-lg">Temukan solusi anda di Maksi Integrasi Teknologi.</p>
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 -mt-10">
-          {services.map((service, index) => (
-            <ServiceCard key={index} title={service.title} description={service.description} />
-          ))}
+    <>
+      {/* Hero Section */}
+      <div className="px-6 pt-32 pb-16 flex flex-col items-start min-h-screen relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+          <div>
+            <h1 className="text-6xl font-bold text-black mb-6">Our Service</h1>
+            <p className="text-xl leading-relaxed text-gray-800 mb-8">
+              Semua layanan dari Maksi dirancang untuk mendukung transformasi
+              digital perusahaan Anda.
+            </p>
+            <div className="text-gray-700 text-lg">
+              <Link href="/" className="hover:underline">
+                Beranda
+              </Link>{" "}
+              <span className="mx-1">›</span>
+              Service
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="/images/service-hero1.png"
+              alt="Service"
+              className="max-w-md rounded-xl shadow-lg"
+            />
+          </div>
         </div>
       </div>
-    </section>
-  )
-}
 
+      {/* List Service */}
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+
+      ))}
+      {/* Tambahan Section */}
+      <ServiceFeaturesSection />
+
+    </>
+  );
+}
