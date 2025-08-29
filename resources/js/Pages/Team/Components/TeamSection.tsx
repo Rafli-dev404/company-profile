@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 
 export default function TeamSection() {
   return (
@@ -7,12 +9,6 @@ export default function TeamSection() {
         <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl mx-auto">
           {/* Teks di sebelah kiri */}
           <div className="flex-1 space-y-6">
-            <nav className="text-gray-600 text-sm mb-8">
-              <span>Beranda</span>
-              <span className="mx-2">▸</span>
-              <span>Team</span>
-            </nav>
-
             <div className="space-y-4">
               <h1 className="text-6xl lg:text-7xl font-bold leading-tight text-black">Team</h1>
             </div>
@@ -23,20 +19,32 @@ export default function TeamSection() {
                 kegiatan operasional perusahaan Anda.
               </p>
             </div>
+
+            <nav className="text-gray-600 text-sm">
+              <Link href="/" className="hover:text-gray-800 transition-colors">
+                Beranda
+              </Link>
+              <span className="mx-2">▸</span>
+              <span>Team</span>
+            </nav>
           </div>
 
           {/* Foto di sebelah kanan */}
-          <div className="flex-1 relative">
-            <div className="relative">
+           <div className="flex-1 relative">
+            <div className="flex items-end h-full min-h-[400px]">
+              <div className="relative w-full">
               <img
-                src="/team-image.png"
-                alt="Team Image"
-                className="w-full h-auto rounded-lg shadow-lg"
+                src="gambar.png"
+                alt="Tim"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover rounded-lg"
               />
-              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
   )
 }
