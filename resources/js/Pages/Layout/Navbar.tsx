@@ -84,10 +84,10 @@ export default function Navbar() {
               <Link href="/team" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                 Team MIT
               </Link>
-              <Link href="/about/klien" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
-                Klien MIT
+              <Link href="/client" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+                Client MIT
               </Link>
-              <Link href="/about/partner" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+              <Link href="/about/#partner" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                 Partner MIT
               </Link>
             </div>
