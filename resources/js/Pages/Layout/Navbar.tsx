@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 export default function Navbar() {
-  const { url } = usePage()
+  const pathname = window.location.pathname
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -17,7 +17,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (url.startsWith("/login") || url.startsWith("/register")) {
+  if (pathname.startsWith("/login") || pathname.startsWith("/register")) {
     return null
   }
 
@@ -25,19 +25,37 @@ export default function Navbar() {
     setOpenDropdown(openDropdown === menu ? null : menu)
   }
 
+  const handlePartnerClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenDropdown(null) // Close dropdown
+
+    if (pathname === "/about") {
+      // Already on about page, just scroll to partner
+      const partnerElement = document.getElementById("partner")
+      if (partnerElement) {
+        partnerElement.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      // Navigate to about page, then scroll after page loads
+      window.location.href = "/about#partner"
+    }
+  }
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-6 transition-all duration-300 ${isScrolled
-        ? "bg-gradient-to-r from-[#E45EFC] via-[#A5DBFB] to-[#387AFF] shadow-lg backdrop-blur-sm"
-        : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-6 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gradient-to-r from-[#E45EFC] via-[#A5DBFB] to-[#387AFF] shadow-lg backdrop-blur-sm"
+          : "bg-transparent"
+      }`}
     >
       {/* Logo */}
       <div className="flex items-center gap-2">
         <img src="/images/logo.png" alt="Logo" className="h-8 w-8" />
         <h1
-          className={`text-base font-semibold transition-colors duration-300 ${isScrolled ? "text-white" : "text-gray-800"
-            }`}
+          className={`text-base font-semibold transition-colors duration-300 ${
+            isScrolled ? "text-white" : "text-gray-800"
+          }`}
         >
           PT Maksi Integrasi Teknologi
         </h1>
@@ -45,10 +63,10 @@ export default function Navbar() {
 
       {/* Menu */}
       <nav
-        className={`flex gap-6 font-medium ml-auto items-center transition-colors duration-300 ${isScrolled ? "text-white" : "text-gray-700"
-          }`}
+        className={`flex gap-6 font-medium ml-auto items-center transition-colors duration-300 ${
+          isScrolled ? "text-white" : "text-gray-700"
+        }`}
       >
-        {/* TODO : Link masih dummy blm diconnec ke backend */}
         <Link href="/" className="hover:text-blue-200">
           Home
         </Link>
@@ -87,9 +105,12 @@ export default function Navbar() {
               <Link href="/client" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                 Client MIT
               </Link>
-              <Link href="/about/#partner" className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+              <button
+                onClick={handlePartnerClick}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
+              >
                 Partner MIT
-              </Link>
+              </button>
             </div>
           )}
         </div>
@@ -188,10 +209,11 @@ export default function Navbar() {
       {/* Login */}
       <Link
         href="/login"
-        className={`ml-6 px-5 py-2 rounded-full font-medium shadow transition-all duration-300 ${isScrolled
-          ? "bg-white text-blue-600 hover:bg-gray-100"
-          : "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:opacity-90"
-          }`}
+        className={`ml-6 px-5 py-2 rounded-full font-medium shadow transition-all duration-300 ${
+          isScrolled
+            ? "bg-white text-blue-600 hover:bg-gray-100"
+            : "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:opacity-90"
+        }`}
       >
         Login
       </Link>
