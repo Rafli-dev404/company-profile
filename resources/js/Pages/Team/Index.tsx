@@ -7,6 +7,7 @@ import TeamCard from './Components/TeamCard'
 
 export default function Index() {
   const teamMembers: TeamMember[] = [
+    // TODO: data masih dummy belum  diambil dari backend
     {
       id: 1,
       name: 'Agus Risan',
