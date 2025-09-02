@@ -55,12 +55,11 @@ export default function TeamSection() {
       position: "Team MIT",
       image: "/images/IMG_1430.JPG",
     },
-
     {
       id: 6,
-      name: "Pak Asep",
+      name: "Pak Agus",
       position: "Team MIT",
-      image: "/images/IMG_4516.JPG",
+      image: "/images/IMG_4510.JPG",
     },
     {
       id: 7,
