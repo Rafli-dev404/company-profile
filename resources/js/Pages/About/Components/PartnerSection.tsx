@@ -1,17 +1,6 @@
 import React from "react"
-
-interface PartnerBenefit {
-  id: number
-  title: string
-  description: string
-  icon: React.ReactNode
-}
-
-interface PartnerSectionProps {
-  title?: string
-  subtitle?: string
-  benefits?: PartnerBenefit[]
-}
+import { PartnerSectionProps } from "../Interfaces/PartnerInterface"
+import { PartnerBenefit } from "../Interfaces/PartnerInterface"
 
 const defaultBenefits: PartnerBenefit[] = [
   {

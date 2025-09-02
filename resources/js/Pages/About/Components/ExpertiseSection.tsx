@@ -1,13 +1,7 @@
 import React from 'react'
-
 import Navbar from '@/Pages/Layout/Navbar'
 import { Settings, Cloud, Network } from "lucide-react"
-
-interface ExpertiseCardProps {
-  icon: React.ComponentType<{ className?: string }>
-  title: string
-  description: string
-}
+import ExpertiseCardProps from '../Interfaces/ExpertiseInterface'
 
 function ExpertiseCard({ icon: Icon, title, description }: ExpertiseCardProps) {
   return (
@@ -23,6 +17,7 @@ function ExpertiseCard({ icon: Icon, title, description }: ExpertiseCardProps) {
 
 export default function Page() {
   const expertiseData = [
+    // TODO: data dummy belum diambil dari backend
     {
       id: 1,
       icon: Settings,

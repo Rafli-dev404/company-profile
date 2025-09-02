@@ -1,18 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { AccordionItemData, AccordionItemProps } from '../Interfaces/ChooseInterface'
 
-interface AccordionItemData {
-  id: string
-  title: string
-  content: string
-}
-
-interface AccordionItemProps {
-  item: AccordionItemData
-  isOpen: boolean
-  onToggle: () => void
-}
 
 function AccordionItem({ item, isOpen, onToggle }: AccordionItemProps) {
   return (
@@ -34,6 +24,7 @@ function AccordionItem({ item, isOpen, onToggle }: AccordionItemProps) {
 }
 
 const accordionData: AccordionItemData[] = [
+  // TODO:data dummy belum diambil dari backend
   {
     id: "profesionalisme",
     title: "Profesionalisme",

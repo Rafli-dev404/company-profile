@@ -1,16 +1,8 @@
 import React from 'react'
 import { Link } from "@inertiajs/react"
+import { TeamCardProps } from '../Interfaces/TeamInterface'
+import { TeamMember } from '../Interfaces/TeamInterface'
 
-interface TeamMember {
-  id: number
-  name: string
-  position: string
-  image: string
-}
-
-interface TeamCardProps {
-  member: TeamMember
-}
 
 const TeamCard = ({ member }: TeamCardProps) => {
   return (
@@ -32,6 +24,7 @@ const TeamCard = ({ member }: TeamCardProps) => {
 
 export default function TeamSection() {
   const teamData: TeamMember[] = [
+    // TODO: data dummy belum diambil dari backend
     {
       id: 1,
       name: "Ihsan",
@@ -62,20 +55,15 @@ export default function TeamSection() {
       position: "Team MIT",
       image: "/images/IMG_1430.JPG",
     },
+
     {
       id: 6,
-      name: "Pak Agus",
-      position: "Team MIT",
-      image: "/images/IMG_4510.JPG",
-    },
-    {
-      id: 7,
       name: "Pak Asep",
       position: "Team MIT",
       image: "/images/IMG_4516.JPG",
     },
     {
-      id: 8,
+      id: 7,
       name: "Hanifah",
       position: "Admin MIT",
       image: "/images/IMG_1427.JPG",
