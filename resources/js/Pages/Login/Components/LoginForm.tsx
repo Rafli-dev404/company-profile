@@ -1,4 +1,3 @@
-// resources/js/Pages/Login/Components/LoginForm.jsx
 import React from "react";
 import { useForm } from "@inertiajs/react";
 
@@ -36,7 +35,6 @@ export default function LoginForm() {
                     <p className="text-red-500 text-xs mt-1">{errors.email}</p>
                 )}
             </div>
-
             <div>
                 <label className="block text-sm font-medium text-gray-700">Password</label>
                 <input
@@ -51,7 +49,6 @@ export default function LoginForm() {
                     <p className="text-red-500 text-xs mt-1">{errors.password}</p>
                 )}
             </div>
-
             <button
                 type="submit"
                 disabled={processing}

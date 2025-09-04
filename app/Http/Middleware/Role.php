@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class Role
 {
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, string $role): mixed
     {
         if (!Auth::check() || Auth::user()->role !== $role) {
-            return redirect('/'); // Kembali ke halaman utama jika bukan admin
+            return redirect('/login')->withErrors([
+                'email' => 'Hanya akun admin yang bisa mengakses halaman ini.',
+            ]);
         }
         return $next($request);
     }
