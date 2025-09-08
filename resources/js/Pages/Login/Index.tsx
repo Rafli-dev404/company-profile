@@ -1,5 +1,5 @@
 import React from "react";
-import { Head, useForm, usePage } from "@inertiajs/react";
+import { Head, useForm, usePage, Link } from "@inertiajs/react";
 import PageProps from "./Interface/LoginInterfaces";
 
 export default function Login() {
@@ -12,18 +12,25 @@ export default function Login() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // TODO : url masih dummy/hardcode
         post("/login", {
-            onSuccess: () => {},
-            onError: (err) => {
-                console.log("Login gagal:", err);
-            },
+            onSuccess: () => { },
+            onError: (err) => { },
         });
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF]">
             <Head title="Login" />
-            <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+            <div className="relative w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+
+                <Link
+                    href="/"
+                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                >
+                    ✕
+                </Link>
+
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login Admin</h2>
                 {flash?.error && (
                     <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
