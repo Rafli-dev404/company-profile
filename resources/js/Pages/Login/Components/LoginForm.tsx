@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "@inertiajs/react";
 
 export default function LoginForm() {
+  // Route masih dummy
     const { data, setData, post, processing, errors } = useForm({
-      // data masih dummy
         email: "",
         password: "",
     });
@@ -43,6 +43,7 @@ export default function LoginForm() {
                     onChange={(e) => setData("password", e.target.value)}
                     className="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     placeholder="Enter your password"
+
                 />
                 {errors.password && (
                     <p className="text-red-500 text-xs mt-1">{errors.password}</p>
