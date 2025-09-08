@@ -2,8 +2,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Actions\Auth\LoginAction;
+use Domain\Login\Request\LoginRequest;
+use Domain\Login\Action\LoginAction; // Perbaiki namespace
 use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
@@ -17,7 +17,7 @@ class AuthController extends Controller
 
     public function showLoginForm()
     {
-        return \Inertia\Inertia::render('Login/Index');
+        return \Inertia\Inertia::render('Login/Index'); // Gunakan namespace penuh
     }
 
     public function login(LoginRequest $request): RedirectResponse

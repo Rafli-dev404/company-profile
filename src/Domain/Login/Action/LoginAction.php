@@ -1,5 +1,5 @@
 <?php
-namespace App\Actions\Auth;
+namespace Domain\Login\Action;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
