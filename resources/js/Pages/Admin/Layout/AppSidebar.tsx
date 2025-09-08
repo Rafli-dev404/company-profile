@@ -11,6 +11,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+
+import UserMenu from "./UserMenu"
 // TODO: masih data dummy
 const items = [
   {
@@ -61,6 +63,9 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        <div className="mt-auto border-t p-4">
+          <UserMenu />
+        </div>
       </SidebarContent>
     </Sidebar>
   )
