@@ -12,11 +12,10 @@ export default function Login() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // TODO : url masih dummy/hardcode
         post("/login", {
             onSuccess: () => { },
-            onError: (err) => {
-                console.log("Login gagal:", err);
-            },
+            onError: (err) => { },
         });
     };
 

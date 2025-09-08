@@ -12,6 +12,7 @@ import { router } from "@inertiajs/react"
 
 export default function UserMenu() {
     const handleLogout = () => {
+        // TODO: url nya masih hardcode/dummy
         router.post("/logout") // langsung hit ke route logout Laravel
     }
 

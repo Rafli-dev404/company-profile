@@ -8,6 +8,7 @@ use Domain\Login\Action\LoginAction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Domain\Login\Request\LogoutRequest;
 
 class AuthController extends Controller
 {
@@ -20,16 +21,18 @@ class AuthController extends Controller
 
     public function showLoginForm()
     {
-        return \Inertia\Inertia::render('Login/Index');
+        return inertia('Login/Index');
     }
 
     public function login(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->only('email', 'password');
+
+
         return $this->loginAction->handle($request, $credentials);
     }
 
-    public function logout(Request $request): RedirectResponse
+    public function logout(LogoutRequest $request): RedirectResponse
     {
         Auth::logout();
 
