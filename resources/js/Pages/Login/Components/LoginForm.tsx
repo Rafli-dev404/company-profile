@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "@inertiajs/react";
 
 export default function LoginForm() {
-  // Route masih dummy
+
     const { data, setData, post, processing, errors } = useForm({
         email: "",
         password: "",
@@ -10,6 +10,7 @@ export default function LoginForm() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // Route masih dummy
         post("/login", {
             onSuccess: () => {
                 // Pengalihan ditangani oleh backend
