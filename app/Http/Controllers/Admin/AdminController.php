@@ -9,11 +9,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Admin/Index');
+        return inertia('Admin/Index');
     }
 
     public function home()
     {
-        return Inertia::render('Admin/Home');
+        return inertia('Admin/Home');
     }
 }

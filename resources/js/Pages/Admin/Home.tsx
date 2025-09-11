@@ -1,77 +1,74 @@
-import React, { useState } from "react";
-import LayoutAdmin from "./Layout/LayoutAdmin";
-import { useSiteContent, SiteContent } from "@/components/context/siteContentContext";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react"
+import LayoutAdmin from "./Layout/LayoutAdmin"
+import { useSiteContent, SiteContent } from "@/components/context/siteContentContext"
+import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import ContentForm from "./Components/ContentForm"
 
 export default function AdminHome() {
-    const { contents, setContents, resetContents } = useSiteContent();
-    const [editingIndex, setEditingIndex] = useState<number | null>(null);
-    const [isAdding, setIsAdding] = useState<boolean>(false);
-    const [form, setForm] = useState<Partial<SiteContent>>({});
-    const [message, setMessage] = useState<string | null>(null);
+    const { contents, setContents, resetContents } = useSiteContent()
+    const [editingIndex, setEditingIndex] = useState<number | null>(null)
+    const [isAdding, setIsAdding] = useState<boolean>(false)
+    const [form, setForm] = useState<Partial<SiteContent>>({})
+    const [message, setMessage] = useState<string | null>(null)
 
     const showMessage = (msg: string) => {
-        setMessage(msg);
-        setTimeout(() => setMessage(null), 3000);
-    };
+        setMessage(msg)
+        setTimeout(() => setMessage(null), 3000)
+    }
 
     const handleEdit = (index: number) => {
-        setEditingIndex(index);
-        setForm(contents[index]);
-        setIsAdding(false);
-    };
+        setEditingIndex(index)
+        setForm(contents[index])
+        setIsAdding(false)
+    }
 
     const handleSave = () => {
         if (isAdding) {
-            setContents([...contents, { ...form } as SiteContent]);
-            showMessage("✅ Data berhasil ditambahkan");
-            setIsAdding(false);
+            setContents([...contents, { ...form } as SiteContent])
+            showMessage("✅ Data berhasil ditambahkan")
+            setIsAdding(false)
         } else if (editingIndex !== null) {
-            const updated = [...contents];
-            updated[editingIndex] = { ...updated[editingIndex], ...form };
-            setContents(updated);
-            showMessage("✏️ Data berhasil diperbarui");
-            setEditingIndex(null);
+            const updated = [...contents]
+            updated[editingIndex] = { ...updated[editingIndex], ...form }
+            setContents(updated)
+            showMessage("✏️ Data berhasil diperbarui")
+            setEditingIndex(null)
         }
-        setForm({});
-    };
+        setForm({})
+    }
 
     const handleDelete = (index: number) => {
-        if (!confirm("Yakin ingin menghapus konten ini?")) return;
-        const updated = contents.filter((_, i) => i !== index);
-        setContents(updated);
-        showMessage("🗑️ Data berhasil dihapus");
-        if (editingIndex === index) setEditingIndex(null);
-    };
+        if (!confirm("Yakin ingin menghapus konten ini?")) return
+        const updated = contents.filter((_, i) => i !== index)
+        setContents(updated)
+        showMessage("🗑️ Data berhasil dihapus")
+        if (editingIndex === index) setEditingIndex(null)
+    }
 
     const handleAddNew = () => {
-        setIsAdding(true);
-        setEditingIndex(null);
-        setForm({});
-    };
+        setIsAdding(true)
+        setEditingIndex(null)
+        setForm({})
+    }
 
     const handleReset = () => {
-        resetContents();
-        showMessage("♻️ Data berhasil direset");
-    };
+        resetContents()
+        showMessage("♻️ Data berhasil direset")
+    }
 
     return (
         <LayoutAdmin title="Manage Home Content">
+            {/* Header */}
             <div className="flex justify-between mb-6 items-center">
                 <h1 className="text-2xl font-bold">Manage Home Content</h1>
                 <div className="flex gap-2">
-                    <button
-                        onClick={handleAddNew}
-                        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-                    >
+                    <Button onClick={handleAddNew} className="bg-green-600 hover:bg-green-700">
                         + Add New
-                    </button>
-                    <button
-                        onClick={handleReset}
-                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-                    >
+                    </Button>
+                    <Button onClick={handleReset} variant="destructive">
                         Reset Content
-                    </button>
+                    </Button>
                 </div>
             </div>
 
@@ -84,7 +81,7 @@ export default function AdminHome() {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
                         className={`mb-4 p-3 rounded border shadow-md
-                            ${message.includes("hapus") ? "bg-red-100 text-red-700 border-red-300"
+              ${message.includes("hapus") ? "bg-red-100 text-red-700 border-red-300"
                                 : message.includes("reset") ? "bg-yellow-100 text-yellow-700 border-yellow-300"
                                     : "bg-green-100 text-green-700 border-green-300"}`}
                     >
@@ -132,18 +129,19 @@ export default function AdminHome() {
                                     </td>
                                     <td className="p-3 border-b text-center">
                                         <div className="flex justify-center relative left-6 gap-2">
-                                            <button
+                                            <Button
                                                 onClick={() => handleEdit(i)}
-                                                className="bg-blue-500 text-white px-3 py-1 rounded text-xs hover:bg-blue-600 w-20"
+                                                className="bg-blue-500 hover:bg-blue-600 w-20 text-xs"
                                             >
                                                 ✏️ Edit
-                                            </button>
-                                            <button
+                                            </Button>
+                                            <Button
                                                 onClick={() => handleDelete(i)}
-                                                className="bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600 w-20"
+                                                variant="destructive"
+                                                className="w-20 text-xs"
                                             >
                                                 🗑️ Delete
-                                            </button>
+                                            </Button>
                                         </div>
                                     </td>
                                 </motion.tr>
@@ -153,76 +151,22 @@ export default function AdminHome() {
                 </table>
             </div>
 
-            {/* Form Tambah/Edit */}
+            {/* Form Tambah/Edit (dipisah ke komponen ContentForm) */}
             <AnimatePresence>
                 {(editingIndex !== null || isAdding) && (
-                    <motion.div
-                        key="form"
-                        initial={{ opacity: 0, scale: 0.9, y: -20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="fixed top-20 right-10 bg-white p-6 rounded-xl shadow-lg w-96 z-50 border"
-                    >
-                        <h2 className="font-bold mb-3">
-                            {isAdding ? "Add New Content" : "Edit Content"}
-                        </h2>
-                        <input
-                            type="text"
-                            placeholder="Section"
-                            value={form.section || ""}
-                            onChange={(e) => setForm({ ...form, section: e.target.value })}
-                            className="border p-2 rounded w-full mb-2"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Title"
-                            value={form.title || ""}
-                            onChange={(e) => setForm({ ...form, title: e.target.value })}
-                            className="border p-2 rounded w-full mb-2"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Subtitle"
-                            value={form.subtitle || ""}
-                            onChange={(e) => setForm({ ...form, subtitle: e.target.value })}
-                            className="border p-2 rounded w-full mb-2"
-                        />
-                        <textarea
-                            placeholder="Description"
-                            value={form.description || ""}
-                            onChange={(e) => setForm({ ...form, description: e.target.value })}
-                            className="border p-2 rounded w-full mb-2"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Image URL"
-                            value={form.image || ""}
-                            onChange={(e) => setForm({ ...form, image: e.target.value })}
-                            className="border p-2 rounded w-full mb-2"
-                        />
-
-                        <div className="flex justify-end gap-2 mt-3">
-                            <button
-                                className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700"
-                                onClick={handleSave}
-                            >
-                                Save
-                            </button>
-                            <button
-                                className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
-                                onClick={() => {
-                                    setEditingIndex(null);
-                                    setIsAdding(false);
-                                    setForm({});
-                                }}
-                            >
-                                Cancel
-                            </button>
-                        </div>
-                    </motion.div>
+                    <ContentForm
+                        form={form}
+                        setForm={setForm}
+                        isAdding={isAdding}
+                        onSave={handleSave}
+                        onCancel={() => {
+                            setEditingIndex(null)
+                            setIsAdding(false)
+                            setForm({})
+                        }}
+                    />
                 )}
             </AnimatePresence>
         </LayoutAdmin>
-    );
+    )
 }
