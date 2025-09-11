@@ -1,5 +1,5 @@
 import React from "react"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Home, LayoutDashboard, Settings } from "lucide-react"
 
 import {
   Sidebar,
@@ -13,31 +13,22 @@ import {
 } from "@/components/ui/sidebar"
 
 import UserMenu from "./UserMenu"
-// TODO: masih data dummy
+
 const items = [
+  //dummy data, nanti ambil dari backend
+  {
+    title: "Dashboard",
+    url: "/admin", // ini ke Index.tsx (Dashboard)
+    icon: LayoutDashboard,
+  },
   {
     title: "Home",
-    url: "#",
+    url: "/admin/home", // ini ke Home.tsx (CRUD Home)
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
     title: "Settings",
-    url: "#",
+    url: "/admin/settings", // nanti bisa kamu tambahin page sendiri
     icon: Settings,
   },
 ]
@@ -54,7 +45,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
-                      <item.icon />
+                      <item.icon className="mr-2 h-4 w-4" />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
