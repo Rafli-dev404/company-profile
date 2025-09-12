@@ -34,11 +34,12 @@ export default function ProductSection({
           <div style={{ width: "600px", margin: "0 auto", overflow: "hidden" }}>
 <motion.div
   className="flex"
-  animate={{ x: [0, -600, 0] }}
+  animate={{
+    x: [0, -600, 0], // geser 3 produk (600px), lalu balik lagi
+  }}
   transition={{
     repeat: Infinity,
-    duration: 1, // total animasi
-    times: [0, 0.1, 1], // 0→-600 = 0.5 detik, -600→0 = 0.5 detik
+    duration: 6, // makin kecil makin cepat
     ease: "easeInOut",
   }}
   style={{ width: `${products.length * 200}px` }} // 200px per produk
@@ -65,6 +66,7 @@ export default function ProductSection({
     </div>
   ))}
 </motion.div>
+
 
           </div>
         </div>
