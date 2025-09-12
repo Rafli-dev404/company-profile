@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Product from "../Interfaces/ProductInterface"
 
 const defaultProducts: Product[] = [
+  // TODO: data dummy, blm diambil dari backend
   { id: 1, name: "Ajuin", logo: "/images/Ajuin.jpg" },
   { id: 2, name: "Maxcode", logo: "/images/MAXCODE-11.png" },
   { id: 3, name: "Konsis", logo: "/images/Konsis.png" },
