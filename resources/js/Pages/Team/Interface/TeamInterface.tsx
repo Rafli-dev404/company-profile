@@ -1,4 +1,4 @@
-interface TeamMember {
+export interface TeamMember {
   id: number;
   name: string;
   title: string;
@@ -7,8 +7,6 @@ interface TeamMember {
   linkedin?: string;
 }
 
-interface TeamSectionProps {
+export interface TeamSectionProps {
   teamMembers: TeamMember[];
 }
-
-export type {TeamMember, TeamSectionProps}

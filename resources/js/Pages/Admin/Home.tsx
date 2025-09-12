@@ -1,61 +1,62 @@
-import React, { useState } from "react"
-import LayoutAdmin from "./Layout/LayoutAdmin"
-import { useSiteContent, SiteContent } from "@/components/context/siteContentContext"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import ContentForm from "./Components/ContentForm"
+import React, { useState } from "react";
+import LayoutAdmin from "./Layout/LayoutAdmin";
+import { useSiteContent, SiteContent } from "@/components/context/siteContentContext";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import ContentForm from "./Components/ContentForm";
+
 
 export default function AdminHome() {
-    const { contents, setContents, resetContents } = useSiteContent()
-    const [editingIndex, setEditingIndex] = useState<number | null>(null)
-    const [isAdding, setIsAdding] = useState<boolean>(false)
-    const [form, setForm] = useState<Partial<SiteContent>>({})
-    const [message, setMessage] = useState<string | null>(null)
+    const { contents, setContents, resetContents } = useSiteContent();
+    const [editingIndex, setEditingIndex] = useState<number | null>(null);
+    const [isAdding, setIsAdding] = useState<boolean>(false);
+    const [form, setForm] = useState<Partial<SiteContent>>({});
+    const [message, setMessage] = useState<string | null>(null);
 
     const showMessage = (msg: string) => {
-        setMessage(msg)
-        setTimeout(() => setMessage(null), 3000)
-    }
+        setMessage(msg);
+        setTimeout(() => setMessage(null), 3000);
+    };
 
     const handleEdit = (index: number) => {
-        setEditingIndex(index)
-        setForm(contents[index])
-        setIsAdding(false)
-    }
+        setEditingIndex(index);
+        setForm(contents[index]);
+        setIsAdding(false);
+    };
 
     const handleSave = () => {
         if (isAdding) {
-            setContents([...contents, { ...form } as SiteContent])
-            showMessage("✅ Data berhasil ditambahkan")
-            setIsAdding(false)
+            setContents([...contents, { ...form } as SiteContent]);
+            showMessage("✅ Data berhasil ditambahkan");
+            setIsAdding(false);
         } else if (editingIndex !== null) {
-            const updated = [...contents]
-            updated[editingIndex] = { ...updated[editingIndex], ...form }
-            setContents(updated)
-            showMessage("✏️ Data berhasil diperbarui")
-            setEditingIndex(null)
+            const updated = [...contents];
+            updated[editingIndex] = { ...updated[editingIndex], ...form };
+            setContents(updated);
+            showMessage("✏️ Data berhasil diperbarui");
+            setEditingIndex(null);
         }
-        setForm({})
-    }
+        setForm({});
+    };
 
     const handleDelete = (index: number) => {
-        if (!confirm("Yakin ingin menghapus konten ini?")) return
-        const updated = contents.filter((_, i) => i !== index)
-        setContents(updated)
-        showMessage("🗑️ Data berhasil dihapus")
-        if (editingIndex === index) setEditingIndex(null)
-    }
+        if (!confirm("Yakin ingin menghapus konten ini?")) return;
+        const updated = contents.filter((_, i) => i !== index);
+        setContents(updated);
+        showMessage("🗑️ Data berhasil dihapus");
+        if (editingIndex === index) setEditingIndex(null);
+    };
 
     const handleAddNew = () => {
-        setIsAdding(true)
-        setEditingIndex(null)
-        setForm({})
-    }
+        setIsAdding(true);
+        setEditingIndex(null);
+        setForm({});
+    };
 
     const handleReset = () => {
-        resetContents()
-        showMessage("♻️ Data berhasil direset")
-    }
+        resetContents();
+        showMessage("♻️ Data berhasil direset");
+    };
 
     return (
         <LayoutAdmin title="Manage Home Content">
@@ -81,8 +82,10 @@ export default function AdminHome() {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
                         className={`mb-4 p-3 rounded border shadow-md
-              ${message.includes("hapus") ? "bg-red-100 text-red-700 border-red-300"
-                                : message.includes("reset") ? "bg-yellow-100 text-yellow-700 border-yellow-300"
+                        ${message.includes("hapus")
+                                ? "bg-red-100 text-red-700 border-red-300"
+                                : message.includes("reset")
+                                    ? "bg-yellow-100 text-yellow-700 border-yellow-300"
                                     : "bg-green-100 text-green-700 border-green-300"}`}
                     >
                         {message}
@@ -151,7 +154,7 @@ export default function AdminHome() {
                 </table>
             </div>
 
-            {/* Form Tambah/Edit (dipisah ke komponen ContentForm) */}
+            {/* Form Tambah/Edit di tengah layar */}
             <AnimatePresence>
                 {(editingIndex !== null || isAdding) && (
                     <ContentForm
@@ -160,13 +163,13 @@ export default function AdminHome() {
                         isAdding={isAdding}
                         onSave={handleSave}
                         onCancel={() => {
-                            setEditingIndex(null)
-                            setIsAdding(false)
-                            setForm({})
+                            setEditingIndex(null);
+                            setIsAdding(false);
+                            setForm({});
                         }}
                     />
                 )}
             </AnimatePresence>
         </LayoutAdmin>
-    )
+    );
 }
