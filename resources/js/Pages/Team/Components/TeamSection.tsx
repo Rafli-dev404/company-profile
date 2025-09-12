@@ -1,46 +1,56 @@
-import React from 'react'
-import { Link } from '@inertiajs/react';
-import { usePage } from '@inertiajs/react';
-import { TeamSectionProps, TeamMember } from '../Interface/TeamInterface';
+import React from 'react';
+import { TeamSectionProps } from '../Interface/TeamInterface';
 import TeamCard from './TeamCard';
+import { motion } from 'framer-motion';
 
-export default function TeamSection({ teamMembers }: TeamSectionProps) {
+// Variants untuk container card (stagger)
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3, // delay antar card
+    },
+  },
+};
+
+// Variants untuk judul dan paragraf
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-50% via-[#A5DBFB] to-[#387AFF]">
-      <div className="container mx-auto px-4 py-35">
-        <div className="flex flex-col items-center gap-12 max-w-7xl mx-auto">
-          {/* Teks di bagian atas */}
-          <div className="space-y-6 text-center">
-            <div className="space-y-4">
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight text-black">Team</h1>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#E45EFC] via-[#A5DBFB] to-[#387AFF] py-20">
+      <div className="container mx-auto px-4 pt-20">
+        {/* Judul + paragraf */}
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          animate="show"
+          variants={textVariants}
+        >
+          <h1 className="text-6xl font-bold text-black">Our Team</h1>
+          <p className="text-gray-800 mt-4 max-w-xl mx-auto">
+            Kami terus berupaya untuk menghadirkan solusi untuk meningkatkan produktivitas
+            dengan mempermudah kegiatan operasional perusahaan Anda.
+          </p>
+        </motion.div>
 
-            <div className="space-y-4 text-lg text-gray-800 max-w-lg mx-auto">
-              <p>
-                Kami terus berupaya untuk menghadirkan solusi untuk meningkatkan produktivitas dengan mempermudah
-                kegiatan operasional perusahaan Anda.
-              </p>
-            </div>
-
-            <nav className="text-gray-600 text-sm">
-              <Link href="/" className="hover:text-gray-800 transition-colors">
-                Beranda
-              </Link>
-              <span className="mx-2">▸</span>
-              <span>Team</span>
-            </nav>
-          </div>
-
-          {/* Kartu tim di bagian bawah */}
-          <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {teamMembers.map((member) => (
-                <TeamCard key={member.id} member={member} />
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Grid TeamCard dengan stagger */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {teamMembers.map((member) => (
+            <TeamCard key={member.id} member={member} />
+          ))}
+        </motion.div>
       </div>
     </div>
   );
-}
+};
+
+export default TeamSection;

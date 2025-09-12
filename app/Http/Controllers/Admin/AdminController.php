@@ -16,4 +16,9 @@ class AdminController extends Controller
     {
         return inertia('Admin/Home');
     }
+
+    public function team()
+    {
+        return inertia('Admin/Team');
+    }
 }
