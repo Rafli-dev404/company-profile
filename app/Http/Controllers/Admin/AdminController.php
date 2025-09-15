@@ -21,4 +21,8 @@ class AdminController extends Controller
     {
         return inertia('Admin/Team');
     }
+    public function service()
+    {
+        return inertia('Admin/Service');
+    }
 }
