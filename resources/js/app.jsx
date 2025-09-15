@@ -5,6 +5,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import store from "./store/index";
 import { SiteContentProvider } from "./components/context/siteContentContext";
 import { TeamProvider } from "./components/context/teamContentContext";
+import { ServiceProvider } from "./components/context/serviceContentContext";
 
 createInertiaApp({
   resolve: async (name) => {
@@ -17,7 +18,9 @@ createInertiaApp({
       <ReduxProvider store={store}>
         <SiteContentProvider>
           <TeamProvider>
-            <App {...props} />
+            <ServiceProvider>
+              <App {...props} />
+            </ServiceProvider>
           </TeamProvider>
         </SiteContentProvider>
       </ReduxProvider>

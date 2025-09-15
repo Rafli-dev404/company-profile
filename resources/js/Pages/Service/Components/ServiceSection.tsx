@@ -1,54 +1,11 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
 import ServiceCard from "./ServiceCard";
-import ServiceCardInterface from "../Interface/ServiceCardInterface";
 import ServiceFeaturesSection from "./ServiceFeaturesSection";
+import { useService } from "@/components/context/serviceContentContext";
 
 export default function ServiceSection() {
-  const services: ServiceCardInterface[] = [
-    {
-      title: "Pengembangan Aplikasi",
-      description:
-        "Kami menciptakan aplikasi yang disesuaikan dengan kebutuhan spesifik bisnis Anda. Mulai dari aplikasi mobile, web, hingga solusi enterprise.",
-      features: [
-        "Aplikasi Mobile",
-        "Aplikasi Web",
-        "Solusi Enterprise",
-        "Custom sesuai kebutuhan",
-      ],
-      image: "/images/service-app.png",
-      link: "/service/pengembangan-aplikasi",
-      bg: "white",
-    },
-    {
-      title: "Integrasi Sistem",
-      description:
-        "Kami menghubungkan berbagai sistem dan platform yang dimiliki perusahaan Anda agar saling terhubung dengan lancar.",
-      features: [
-        "Integrasi API",
-        "Konektivitas antar sistem",
-        "Sinkronisasi data",
-        "Efisiensi proses bisnis",
-      ],
-      image: "/images/service-integration.png",
-      link: "/service/integrasi-sistem",
-      bg: "white",
-    },
-    {
-      title: "Deployment Solusi",
-      description:
-        "Kami memastikan implementasi sistem berjalan cepat, aman, dan sesuai standar industri.",
-      features: [
-        "Setup server & cloud",
-        "Deployment cepat",
-        "Keamanan standar industri",
-        "Dukungan teknis penuh",
-      ],
-      image: "/images/deployment.png",
-      link: "/service/deployment-solusi",
-      bg: "white",
-    },
-  ];
+  const { services } = useService(); // ambil dari context
 
   return (
     <>
@@ -81,12 +38,11 @@ export default function ServiceSection() {
 
       {/* List Service */}
       {services.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-
+        <ServiceCard key={service.id || index} {...service} />
       ))}
+
       {/* Tambahan Section */}
       <ServiceFeaturesSection />
-
     </>
   );
 }
