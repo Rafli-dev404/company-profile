@@ -4,10 +4,7 @@ import React from 'react'
 import Footer from './Footer'
 import HeroSection from './HeroSection';
 import SocialSection from './SocialSection';
-interface LayoutMainProps {
-  children: React.ReactNode
-  title: string
-}
+import LayoutMainProps from './Interface/LayoutMainInterface';
 
 export default function LayoutMain({ children, title }: LayoutMainProps) {
   return (
