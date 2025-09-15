@@ -2,14 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Service } from "@/components/context/serviceContentContext";
-
-interface ServiceFormProps {
-    form: Partial<Service>;
-    setForm: React.Dispatch<React.SetStateAction<Partial<Service>>>;
-    isAdding: boolean;
-    onSave: () => void;
-    onCancel: () => void;
-}
+import ServiceFormProps from "../Interface/ServiceInterface";
 
 export default function ServiceForm({
     form,
