@@ -10,6 +10,7 @@ export const meta = {
 }
 
 const articles = [
+  // TODO: data dummy
   {
     id: 1,
     title: 'Contoh Peralatan Teknologi Informasi Yang Masih Eksis Hingga…',
